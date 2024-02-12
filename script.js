@@ -94,8 +94,9 @@ for (const item of perguntas) {
     for (let resposta of item.resposta) {
       const dt = quizItem.querySelector("dl dt").cloneNode(true)
       dt.querySelector("span").textContent = resposta
-
-       quizItem.querySelector("dl").appendChild(dt)
+      dt.querySelector("input").setAttribute("name", "pergunta-" + perguntas.indexOf(item))
+      dt.querySelector("input").value = item.resposta.indexOf(resposta)
+      quizItem.querySelector("dl").appendChild(dt)
     }
   
   quizItem.querySelector("dl dt").remove()
