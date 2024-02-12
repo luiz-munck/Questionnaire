@@ -86,6 +86,11 @@ const perguntas = [
 
 const quiz = document.querySelector("#quiz")
 const template = document.querySelector("template")
-const quizItem = template.content.cloneNode(true)
 
-quiz.appendChild(quizItem)
+for(const item of perguntas) {
+   const quizItem = template.content.cloneNode(true)
+   quizItem.querySelector("h3").textContent = item.pergunta
+
+    
+   quiz.appendChild(quizItem)
+}
